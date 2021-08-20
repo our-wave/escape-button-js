@@ -43,7 +43,7 @@ yarn add escape-button-js
 **Option 2:** Add the CDN link to the bottom of the `<body>` element on each page you want to render the button (make sure the link is below the component markup you added earlier):
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/escape-button-js@1.0.4/dist/index.var.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/escape-button-js@1.0.5/dist/index.var.min.js"></script>
 ```
 
 ## Usage
@@ -51,7 +51,7 @@ yarn add escape-button-js
 <!-- prettier-ignore -->
 ```js
 // Require module
-const EscapeButton = require('escape-button-js');
+const { EscapeButton } = require('escape-button-js');
 
 // Enable escape button
 EscapeButton(Options);
