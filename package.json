@@ -1,6 +1,6 @@
 {
 	"name": "escape-button-js",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "Open source widget to help users quickly and discretely leave your website",
 	"main": "dist/index.min.js",
 	"scripts": {
@@ -16,6 +16,11 @@
 		"type": "git",
 		"url": "https://github.com/our-wave/escape-button-js"
 	},
+	"keywords": [
+		"escape",
+		"violence",
+		"widget"
+	],
 	"license": "MIT",
 	"private": false,
 	"author": {
