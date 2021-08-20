@@ -49,7 +49,7 @@ module.exports = function () {
 		},
 		output: {
 			path: `${__dirname}/dist/`,
-			filename: (isEnvDevelopment) ? '[name].js' : '[name].js',
+			filename: (isEnvDevelopment) ? '[name].min.js' : '[name].min.js',
 			publicPath: '/public/',
 			libraryTarget: 'commonjs2'
 		},
