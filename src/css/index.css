@@ -15,6 +15,7 @@
 	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.14);
 	opacity: 1;
 	cursor: pointer;
+	z-index: 9999;
 }
 .ow-leave-page-fab:hover {
 	opacity: 0.9;
@@ -35,10 +36,8 @@
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
+	margin: 0px auto;
 }
 .ow-leave-page-fab.script-enabled {
 	display: none;
-}
-.ow-leave-fab {
-	margin-bottom: 42px;
 }

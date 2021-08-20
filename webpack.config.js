@@ -51,6 +51,7 @@ module.exports = function () {
 			path: `${__dirname}/dist/`,
 			filename: (isEnvDevelopment) ? '[name].js' : '[name].js',
 			publicPath: '/public/',
+			libraryTarget: 'commonjs2'
 		},
 		...(!isEnvDevelopment ? {
 			devtool: 'source-map',
@@ -59,7 +60,8 @@ module.exports = function () {
 			rules: [
 				{
 					test: /\.css$/,
-					use: ['css-loader']
+					use: ['style-loader',
+						'css-loader']
 				},
 				{
 					test: /\.(gif|png|jpg|ico)$/,

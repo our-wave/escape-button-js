@@ -41,7 +41,7 @@ const EscapeButton = (config = {}) => {
 	document.addEventListener('click', (event) => {
 
 		// Ignore if incorrect selector
-		if (!event.target.matches('.ow-leave-page-fab.script-enabled')) return;
+		if (!event.target.closest('.ow-leave-page-fab.script-enabled')) return;
 
 		// Handle leave page logic
 		handleLeavePage();
