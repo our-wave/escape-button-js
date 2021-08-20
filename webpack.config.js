@@ -39,7 +39,7 @@ const htmlMinificationOptions = {
  * Configuration
  */
 
-module.exports = function () {
+const buildConfiguration = function (target) {
 
 	// Build configuration
 	const configuration = {
@@ -49,9 +49,12 @@ module.exports = function () {
 		},
 		output: {
 			path: `${__dirname}/dist/`,
-			filename: (isEnvDevelopment) ? '[name].min.js' : '[name].min.js',
+			filename: (isEnvDevelopment) ? `[name].${target}.min.js` : `[name].${target}.min.js`,
 			publicPath: '/public/',
-			libraryTarget: 'commonjs2'
+			library: {
+				name: 'EscapeButton',
+				type: target
+			}
 		},
 		...(!isEnvDevelopment ? {
 			devtool: 'source-map',
@@ -123,3 +126,12 @@ module.exports = function () {
 	// Return config
 	return configuration;
 };
+
+/**
+ * Exports
+ */
+
+module.exports = [
+	buildConfiguration('var'),
+	buildConfiguration('commonjs2')
+];

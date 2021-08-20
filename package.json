@@ -1,8 +1,8 @@
 {
 	"name": "escape-button-js",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "Open source widget to help users quickly and discretely leave your website",
-	"main": "dist/index.min.js",
+	"main": "dist/index.commonjs2.min.js",
 	"scripts": {
 		"build": "webpack",
 		"lint": "npm-run-all -p lint:code lint:css",
