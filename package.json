@@ -1,6 +1,6 @@
 {
 	"name": "escape-button-js",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Open source widget to help users quickly and discretely leave your website",
 	"main": "dist/index.js",
 	"scripts": {
