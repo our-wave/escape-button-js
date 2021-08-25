@@ -85,6 +85,10 @@ It is possible to override the styling of the Escape Button in your own styleshe
 }
 ```
 
+## WordPress Version
+
+We have also created a WordPress plugin version of the Escape Button for the community. [Check it out here](https://github.com/our-wave/escape-button-wordpress)!
+
 ## Resources
 
 -   [MIT License](LICENSE.md)
