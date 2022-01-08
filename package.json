@@ -36,8 +36,10 @@
 		}
 	],
 	"dependencies": {
+		"browserify": "^17.0.0",
 		"core-js": "^3.6.5",
-		"regenerator-runtime": "^0.13.7"
+		"regenerator-runtime": "^0.13.7",
+		"util": "^0.12.4"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.4.0",
