@@ -4,6 +4,7 @@
 
 // Modules
 const webpack = require('webpack');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const dotenv = require('dotenv').config();
 
@@ -39,7 +40,10 @@ const htmlMinificationOptions = {
  * Configuration
  */
 
-const buildConfiguration = function (target) {
+const buildConfiguration = function (target, modifier, separateCSS) {
+
+	// Create file name
+	const fileName = modifier != null ? `${target}.${modifier}` : target;
 
 	// Build configuration
 	const configuration = {
@@ -49,7 +53,7 @@ const buildConfiguration = function (target) {
 		},
 		output: {
 			path: `${__dirname}/dist/`,
-			filename: (isEnvDevelopment) ? `[name].${target}.min.js` : `[name].${target}.min.js`,
+			filename: (isEnvDevelopment) ? `[name].${fileName}.min.js` : `[name].${fileName}.min.js`,
 			publicPath: '/public/',
 			library: {
 				name: 'EscapeButton',
@@ -59,12 +63,23 @@ const buildConfiguration = function (target) {
 		...(!isEnvDevelopment ? {
 			devtool: 'source-map',
 		} : undefined),
+		...(separateCSS ? {
+			optimization: {
+				minimize: false
+			}
+		} : undefined),
 		module: {
 			rules: [
 				{
 					test: /\.css$/,
-					use: ['style-loader',
-						'css-loader']
+					use: [
+						separateCSS && {
+							loader: MiniCssExtractPlugin.loader,
+							options: {}
+						},
+						!separateCSS && 'style-loader',
+						'css-loader'
+					].filter(Boolean)
 				},
 				{
 					test: /\.(gif|png|jpg|ico)$/,
@@ -97,6 +112,9 @@ const buildConfiguration = function (target) {
 				'process.env': JSON.stringify({
 					PACKAGE_VERSION: Package.version
 				}),
+			}),
+			separateCSS && new MiniCssExtractPlugin({
+				filename: isEnvDevelopment ? `css/[name].${fileName}.bundle.css` : `css/[name].${fileName}.bundle.css`,
 			}),
 			new HtmlWebpackPlugin({
 				filename: 'index.html',
@@ -132,6 +150,7 @@ const buildConfiguration = function (target) {
  */
 
 module.exports = [
-	buildConfiguration('var'),
-	buildConfiguration('commonjs2')
+	buildConfiguration('var', null, false),
+	buildConfiguration('commonjs2', null, false),
+	buildConfiguration('var', 'solo', true),
 ];
