@@ -99,4 +99,4 @@ We have also created a WordPress plugin version of the Escape Button for the com
 
 -   [Our Wave Website](https://www.ourwave.org)
 -   [Our Wave Community Guidelines](https://www.ourwave.org/community-guidelines)
--   [Our Wave News on Twitter](https://twitter.com/ourwavestories)
+-   [Our Wave News on X / Twitter](https://x.com/ourwavestories)
