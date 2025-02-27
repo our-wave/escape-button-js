@@ -13,11 +13,13 @@
  * Requires
  */
 
+// Environment
+require('dotenv').config();
+
 // Modules
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const dotenv = require('dotenv').config();
 
 // Package
 const Package = require('./package.json');
@@ -26,7 +28,7 @@ const Package = require('./package.json');
  * Environment
  */
 
-dotenv.parsed.PACKAGE_VERSION = Package.version;
+process.env.PACKAGE_VERSION = Package.version;
 const isEnvDevelopment = process.env.NODE_ENV === 'development';
 
 /**
